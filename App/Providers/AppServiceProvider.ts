@@ -1,5 +1,7 @@
 import ServiceProvider from "Elucidate/Support/ServiceProvider";
 import Authenticator from "Elucidate/Auth/Authenticator";
+import UserEntity from '../../App/Entities/User'
+import UserRepository from "App/Repository/UserRepository"
 
 class AppServiceProvicer extends ServiceProvider {
   /**
@@ -8,7 +10,9 @@ class AppServiceProvicer extends ServiceProvider {
    */
   public register() {
     this.app.singleton("Authenticator", Authenticator, "class");
-   }
+    this.app.singleton("userEntity", UserEntity, "class");
+    this.app.singleton("UserRepo", UserRepository, "class")
+  }
   
   /**
    * Bootstrap any application services.
